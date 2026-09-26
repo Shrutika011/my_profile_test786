@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shrutika | Profile</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f4f2ee;
+            color: #292725;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1050px;
+            margin: auto;
+        }
+
+        header {
+            padding: 28px 0;
+            border-bottom: 1px solid #ddd8d0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #625e59;
+            margin-left: 28px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #292725;
+        }
+
+        .hero {
+            min-height: 72vh;
+            display: flex;
+            align-items: center;
+            padding: 70px 0;
+        }
+
+        .hero-content {
+            max-width: 720px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e7e2da;
+            color: #625e59;
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-bottom: 22px;
+        }
+
+        h1 {
+            font-size: clamp(45px, 7vw, 78px);
+            line-height: 1.05;
+            font-weight: 600;
+            letter-spacing: -3px;
+            margin-bottom: 25px;
+        }
+
+        h1 span {
+            color: #817a72;
+        }
+
+        .intro {
+            font-size: 18px;
+            color: #68635d;
+            max-width: 620px;
+            margin-bottom: 32px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 12px 22px;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .primary {
+            background: #35322f;
+            color: white;
+        }
+
+        .primary:hover {
+            background: #504b46;
+        }
+
+        .secondary {
+            border: 1px solid #cfc9c0;
+            color: #494540;
+            background: #faf9f7;
+        }
+
+        .secondary:hover {
+            background: #ebe7e1;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 30px;
+            margin-bottom: 35px;
+            font-weight: 500;
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            border-top: 1px solid #ddd8d0;
+        }
+
+        .about-text {
+            color: #68635d;
+            font-size: 16px;
+        }
+
+        .details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .detail-card {
+            background: #faf9f7;
+            border: 1px solid #ded9d1;
+            border-radius: 12px;
+            padding: 22px;
+        }
+
+        .detail-card small {
+            display: block;
+            color: #918b83;
+            margin-bottom: 5px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .detail-card strong {
+            font-weight: 500;
+        }
+
+        .skills {
+            border-top: 1px solid #ddd8d0;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill {
+            padding: 10px 17px;
+            background: #e9e5df;
+            border-radius: 25px;
+            color: #514c47;
+            font-size: 14px;
+        }
+
+        .interests {
+            border-top: 1px solid #ddd8d0;
+        }
+
+        .interest-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .interest {
+            background: #faf9f7;
+            border: 1px solid #ded9d1;
+            padding: 28px;
+            border-radius: 12px;
+            transition: transform 0.2s;
+        }
+
+        .interest:hover {
+            transform: translateY(-4px);
+        }
+
+        .interest h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .interest p {
+            font-size: 14px;
+            color: #77716a;
+        }
+
+        .contact {
+            border-top: 1px solid #ddd8d0;
+            text-align: center;
+            padding-bottom: 100px;
+        }
+
+        .contact p {
+            color: #716c66;
+            margin-bottom: 25px;
+        }
+
+        footer {
+            border-top: 1px solid #ddd8d0;
+            padding: 25px 0;
+            text-align: center;
+            color: #918b83;
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+            nav a {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 80px 0;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .details {
+                grid-template-columns: 1fr;
+            }
+
+            .interest-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                letter-spacing: -2px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">S.</div>
+
+                <div>
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#interests">Interests</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+    <main>
+
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+
+                    <div class="tag">Engineering Student · Learner · Creator</div>
+
+                    <h1>
+                        Hi, I'm <span>Shrutika.</span>
+                    </h1>
+
+                    <p class="intro">
+                        I'm a second-year engineering student interested in technology,
+                        creative problem-solving, and building meaningful digital projects.
+                        I enjoy learning new things and turning ideas into simple,
+                        practical solutions.
+                    </p>
+
+                    <div class="buttons">
+                        <a href="#about" class="btn primary">Explore Profile</a>
+                        <a href="#contact" class="btn secondary">Get in Touch</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section id="about" class="about">
+            <div class="container" style="display: contents;">
+
+                <div>
+                    <h2 class="section-title">About Me</h2>
+
+                    <p class="about-text">
+                        I am currently pursuing engineering and exploring different areas
+                        of technology. I like working on projects that combine technical
+                        learning with creativity and real-world usefulness.
+                    </p>
+                </div>
+
+                <div class="details">
+
+                    <div class="detail-card">
+                        <small>Education</small>
+                        <strong>Engineering Student</strong>
+                    </div>
+
+                    <div class="detail-card">
+                        <small>Year</small>
+                        <strong>Second Year</strong>
+                    </div>
+
+                    <div class="detail-card">
+                        <small>Focus</small>
+                        <strong>Technology & Development</strong>
+                    </div>
+
+                    <div class="detail-card">
+                        <small>Approach</small>
+                        <strong>Learn · Build · Improve</strong>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <section id="skills" class="skills">
+            <div class="container">
+
+                <h2 class="section-title">Skills & Tools</h2>
+
+                <div class="skill-list">
+                    <div class="skill">C</div>
+                    <div class="skill">Java</div>
+                    <div class="skill">Python</div>
+                    <div class="skill">SQL</div>
+                    <div class="skill">HTML</div>
+                    <div class="skill">CSS</div>
+                    <div class="skill">Git & GitHub</div>
+                    <div class="skill">AWS</div>
+                    <div class="skill">Problem Solving</div>
+                    <div class="skill">Presentation</div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section id="interests" class="interests">
+            <div class="container">
+
+                <h2 class="section-title">What I Enjoy</h2>
+
+                <div class="interest-grid">
+
+                    <div class="interest">
+                        <h3>Technology</h3>
+                        <p>
+                            Exploring programming, cloud technologies and
+                            new digital tools.
+                        </p>
+                    </div>
+
+                    <div class="interest">
+                        <h3>Creative Projects</h3>
+                        <p>
+                            Turning ideas into useful websites, applications
+                            and visual concepts.
+                        </p>
+                    </div>
+
+                    <div class="interest">
+                        <h3>Learning</h3>
+                        <p>
+                            Continuously improving my technical and
+                            communication skills.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <section id="contact" class="contact">
+            <div class="container">
+
+                <h2 class="section-title">Let's Connect</h2>
+
+                <p>
+                    I'm always open to learning, collaborating and
+                    exploring interesting ideas.
+                </p>
+
+                <a href="mailto:your.email@example.com" class="btn primary">
+                    Email Me
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <footer>
+        © 2026 Shrutika · Personal Profile
+    </footer>
+
+</body>
+</html>
